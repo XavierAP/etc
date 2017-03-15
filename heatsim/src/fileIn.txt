@@ -1,0 +1,11 @@
+0.0127   Radius of disk in m
+0.0001   Integration step size along radius
+4        Total integration time in s
+0.001    Integration step size along time
+0.1      Time step size for output
+20       Initial temperature in C
+200      Edge temperature in C
+100      Flow temperature in C
+1e-3     2D conductivity in W K^-1
+2e-6     2D diffusivity in m^2 s^-1
+2e3      Convective coefficient in W m^-2 K^-1
