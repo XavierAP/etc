@@ -1,3 +1,6 @@
+*.d  linguist-language=D
+*.di linguist-language=D
+
 # Auto detect text files and perform LF normalization
 * text=auto
 
