@@ -33,7 +33,9 @@ a      = 2D diffusivity in m^2 s^-1
 h      = Convective coefficient in W m^-2 K^-1
          relative to the frontal area of the disc.
 
-Throws: if output() does.
+Throws: if output() does,
+or in case of invalid input (negative, zero, infinite or NAN
+physical magnitudes where not applicable).
 
 Description:
 
