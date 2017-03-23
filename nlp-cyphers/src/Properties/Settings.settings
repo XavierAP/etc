@@ -1,0 +1,25 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JP.AIclass.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DictionaryFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WordDictionary.txt</Value>
+    </Setting>
+    <Setting Name="RotationCipher" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Esp qtcde nzyqpcpynp zy esp ezatn zq Lcetqtntlw Tyepwwtrpynp hld spwo le Olcexzfes Nzwwprp ty estd jplc.</Value>
+    </Setting>
+    <Setting Name="ColumnCipher" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">de|  | f|Cl|nf|ed|au| i|ti|  |ma|ha|or|nn|ou| S|on|nd|on
+ry|  |is|th|is| b|eo|as|  |  |f |wh| o|ic| t|, |  |he|h 
+ab|  |la|pr|od|ge|ob| m|an|  |s |is|el|ti|ng|il|d |ua|c 
+he|  |ea|of|ho| m| t|et|ha|  | t|od|ds|e |ki| c|t |ng|br
+wo|m,|to|yo|hi|ve|u | t|ob|  |pr|d |s |us| s|ul|le|ol|e 
+ t|ca| t|wi| M|d |th|"A|ma|l |he| p|at|ap|it|he|ti|le|er
+ry|d |un|Th|" |io|eo|n,|is|  |bl|f |pu|Co|ic| o|he|at|mm
+hi|  |  |in|  |  | t|  |  |  |  |ye|  |ar|  |s |  |  |. </Value>
+    </Setting>
+    <Setting Name="ColumnSeparator" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">|</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
