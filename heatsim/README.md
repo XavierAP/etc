@@ -2,7 +2,8 @@
 
 ![surface plot](doc/results/plot.png "Sample solution")
 
-Solves a heat diffusion equation by finite differences. See inline documentation for more info.
+Solves a heat diffusion equation by finite differences, in D.
+See inline documentation for more info.
 Note: this integration method is not guaranteed to converge depending on the input.
 
 * [**`heatsim.d`**](src/heatsim.d)
