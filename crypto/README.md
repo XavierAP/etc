@@ -1,5 +1,5 @@
 # crypto
-Homework from the Stanford "massive open online course" [crypto-class.org](http://crypto-class.org)
+Homework in C# from the Stanford "massive open online course" [crypto-class.org](http://crypto-class.org)
 which I did not finish -- extremely cool but extremely outside my field of professional interest.
 
 - [**`BirthdayAttack.cs`**](BirthdayAttack.cs)
