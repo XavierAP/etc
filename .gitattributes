@@ -1,5 +1,13 @@
+# GitHub language detection overrides
 *.d  linguist-language=D
 *.di linguist-language=D
+# Visual Studio .NET
+.config   linguist-language=XML
+.settings linguist-language=XML
+# https://en.wikipedia.org/wiki/Maxima_(software)
+*.mac linguist-language=Maxima
+# https://en.wikipedia.org/wiki/Maple_(software)
+*.mw  linguist-language=XML
 
 # Auto detect text files and perform LF normalization
 * text=auto

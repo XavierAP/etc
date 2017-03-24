@@ -1,0 +1,86 @@
+
+/* Clean up: */
+kill(all);
+
+/* Angles in rad, time in hours.
+ * Constants: */
+/* - Earth's rotation speed around own axis. */
+ooR:  2*%pi/24;
+/* - Speed of Earth's center around Sun. */
+ooT:  ooR/365.25;
+/* Tilt angle of Earth's rotation axis wrt Sun orbit plane. */
+tilt: 23.44*%pi/180;
+
+/* Position of Sun wrt Earth's center
+ * in a reference frame 0 which does not rotate,
+ * parametric wrt time t in hours.
+ * Time 0 is midday Summer solstice at Greenwich.
+ * Approximation: circular orbit / constant speed.
+ */
+r0: [
+ cos(t*ooT),
+-sin(t*ooT),
+ 0 ];
+
+/* Change of basis to a reference frame 1
+ * rotating around Earth's axis,
+ * which is the Z axis in this frame:
+ */
+cT: cos(tilt);
+sT: sin(tilt);
+cR: cos(t*ooR);
+sR: sin(t*ooR);
+
+r1:
+matrix(
+[ cT, 0, sT],
+[  0, 1, 0 ],
+[-sT, 0, cT])
+.
+matrix(
+[cR, -sR, 0],
+[sR,  cR, 0],
+[ 0,  0 , 1])
+. r0;
+
+kill(cT,sT,cR,sR); /* clean up symbol pollution. */
+
+/* Change of basis to a reference frame 2
+ * on the surface of the Earth,
+ * where we live and we want to find out the Sun's position.
+ * Approximation: Earth's radius is small
+ * compared to its distance to the Sun;
+ * therefore change of basis without considering
+ * translation of origin of reference frame 2 wrt 1.
+ * Axis X2 points South, Y2 East,
+ * and Z2 points to the zenith -- opposite of Earth's center.
+
+ * lon: Longitude in [-pi, pi] rad
+ * lat: Latitude  in [-pi/2, pi/2] rad
+ */
+ca: cos(lon);
+sa: sin(lon);
+b:  %pi/2 - lat;
+cb: cos(b);
+sb: sin(b);
+
+r2:
+matrix(
+[ca, -sa, 0],
+[sa,  ca, 0],
+[ 0,  0 , 1])
+.
+matrix(
+[ cb, 0, sb],
+[ 0 , 1, 0 ],
+[-sb, 0, cb])
+. r1;
+
+kill(ca,sa,b,cb,sb); /* clean up symbol pollution. */
+
+/* Sample location:
+ */
+r: r2, lat=0.727, lon=0.0824;  /* Valladolid. */
+r: [r[1][1], r[2][1], r[3][1]]; /* turn column matrix back into regular list. */
+
+/* TODO plots */
