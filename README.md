@@ -9,3 +9,5 @@ Finite difference solver for the heat diffusion equation, written in D.
 Solving simple word ciphers with probabilistic Natural Language Processing and search algorithms, in C#.
 * [pytensors](pytensors):
 Just re-inventing the wheel if you need to make or manipulate tensors as Python lists of lists.
+* [sunpos](sunpos):
+Calculates the position of the Sun at any time of the year, with respect to any point on Earth's surface.
