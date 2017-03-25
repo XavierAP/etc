@@ -1,5 +1,6 @@
 # heatsim
-Solves a heat diffusion equation by finite differences, in D.
+Solves a heat diffusion equation by finite differences.
+Written in D.
 
 ![surface plot](doc/results/plot.png "Sample solution")
 
