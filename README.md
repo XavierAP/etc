@@ -13,6 +13,7 @@ The goal was to provide a scalable solution with the minimum runtime order of ma
 Finite difference solver for the heat diffusion equation, written in D.
 
 * [nlp-cyphers](nlp-cyphers)
+(sic):
 Solving simple word ciphers with probabilistic Natural Language Processing and search algorithms, in C#.
 
 * [pytensors](pytensors):
