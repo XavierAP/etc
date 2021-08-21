@@ -9,6 +9,9 @@ Simple assignment from an entry-level recruiting challenge at ASML.
 I did it for fun when I was already working at the company, in mechanical development.
 The goal was to provide a scalable solution with the minimum runtime order of magnitude O(N+M+K).
 
+* [FileScripts](FileScripts):
+Small scripts for batch file processing.
+
 * [heatsim](heatsim):
 Finite difference solver for the heat diffusion equation, written in D.
 
