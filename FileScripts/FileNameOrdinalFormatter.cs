@@ -12,17 +12,15 @@ namespace JP
 	/// <summary>Windows can helpfully number files (1) (2) ... (10) etc
 	/// but this results in wrong ordering with other software.
 	/// This class fixes it into (01) (02) ... (10) etc.
-	/// Non thread-safe due to StringBuilder cache.</summary>
-	public class FileNameOrdinalFormatter
+	public static class FileNameOrdinalFormatter
 	{
 		private const int NullLength = int.MinValue;
 
-		private readonly StringBuilder cache = new StringBuilder();
-
-		public void
+		public static void
 		ChangeNames(IEnumerable<string> filePathNames, PathNameChanger callback)
 		{
 			var files = filePathNames.ToList();
+			var cache = new StringBuilder(files[0].Length + 9);
 			for(int i = 0; i < files.Count; i++)
 			{
 				var pathName = files[i];
@@ -39,7 +37,7 @@ namespace JP
 						{
 							pathName = files[j];
 							callback(pathName, GetNewName(pathName,
-								prefixIncludingBracket, maxDigitLength));
+								prefixIncludingBracket, maxDigitLength, cache));
 						}
 					}
 					i = k;
@@ -47,9 +45,10 @@ namespace JP
 			}
 		}
 
-		private string
+		private static string
 		GetNewName(FastString pathName,
-			FastString prefixIncludingBracket, int maxDigitLength)
+			FastString prefixIncludingBracket, int maxDigitLength,
+			StringBuilder cache)
 		{
 			var numberPos = prefixIncludingBracket.Length;
 			if(HasNumberAt(pathName, numberPos, out var digitLength))
