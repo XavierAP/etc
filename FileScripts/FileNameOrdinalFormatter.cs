@@ -19,9 +19,9 @@ namespace JP
 		public static void
 		ChangeNames(IEnumerable<string> filePathNames, PathNameChanger callback)
 		{
-			var files = filePathNames.ToList();
+			var files = filePathNames.ToArray();
 			var cache = new StringBuilder(files[0].Length + 9);
-			for(int i = 0; i < files.Count; i++)
+			for(int i = 0; i < files.Length; i++)
 			{
 				var pathName = files[i];
 				if(HasNumberInBrackets(pathName,
@@ -65,14 +65,14 @@ namespace JP
 		}
 
 		private static (int LastIndex, int MaxDigitLength)
-		FindLastFileWithSamePrefix(List<string> files,
+		FindLastFileWithSamePrefix(string[] files,
 			FastString prefixIncludingBracket,
 			int firstIndex, int firstDigitLength)
 		{
 			var lastIndex = firstIndex;
 			var maxDigitLength = firstDigitLength;
 
-			for(int i = firstIndex + 1; i < files.Count; i++)
+			for(int i = firstIndex + 1; i < files.Length; i++)
 			{
 				var pathName = files[i].AsSpan();
 				if(pathName.StartsWith(prefixIncludingBracket) &&
