@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace JP
@@ -17,25 +16,24 @@ namespace JP
 		private const int NullLength = int.MinValue;
 
 		public static void
-		ChangeNames(IEnumerable<string> filePathNames, PathNameChanger callback)
+		ChangeNames(IReadOnlyList<string> filePathNames, PathNameChanger callback)
 		{
-			var files = filePathNames.ToArray();
-			var cache = new StringBuilder(files[0].Length + 9);
-			for(int i = 0; i < files.Length; i++)
+			var cache = new StringBuilder(filePathNames[0].Length + 9);
+			for(int i = 0; i < filePathNames.Count; i++)
 			{
-				var pathName = files[i];
+				var pathName = filePathNames[i];
 				if(HasNumberInBrackets(pathName,
 					out var prefixIncludingBracket,
 					out var digitLength))
 				{
-					var (k, maxDigitLength) = FindLastFileWithSamePrefix(files,
+					var (k, maxDigitLength) = FindLastFileWithSamePrefix(filePathNames,
 						prefixIncludingBracket, i, digitLength);
 
 					if(maxDigitLength > 1)
 					{
 						for(int j = i; j <= k; j++)
 						{
-							pathName = files[j];
+							pathName = filePathNames[j];
 							callback(pathName, GetNewName(pathName,
 								prefixIncludingBracket, maxDigitLength, cache));
 						}
@@ -65,14 +63,14 @@ namespace JP
 		}
 
 		private static (int LastIndex, int MaxDigitLength)
-		FindLastFileWithSamePrefix(string[] files,
+		FindLastFileWithSamePrefix(IReadOnlyList<string> files,
 			FastString prefixIncludingBracket,
 			int firstIndex, int firstDigitLength)
 		{
 			var lastIndex = firstIndex;
 			var maxDigitLength = firstDigitLength;
 
-			for(int i = firstIndex + 1; i < files.Length; i++)
+			for(int i = firstIndex + 1; i < files.Count; i++)
 			{
 				var pathName = files[i].AsSpan();
 				if(pathName.StartsWith(prefixIncludingBracket) &&
