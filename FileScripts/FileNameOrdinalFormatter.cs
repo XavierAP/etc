@@ -8,9 +8,11 @@ namespace JP
 
 	public delegate void PathNameChanger(string oldPathName, string newPathName);
 
-	/// <summary>Windows can helpfully number files (1) (2) ... (10) etc
+	/// <summary>
+	/// Windows can helpfully number files (1) (2) ... (10) etc
 	/// but this results in wrong ordering with other software.
 	/// This class fixes it into (01) (02) ... (10) etc.
+	/// </summary>
 	public static class FileNameOrdinalFormatter
 	{
 		private const int NullLength = int.MinValue;
